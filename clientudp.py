@@ -9,18 +9,19 @@ class clientudp:
 
         #interação com o servidor
         print ('Para encerrar Presssione "exit" e em seguida "Enter"')
-        self.msg = input()
+        #self.msg = input()
 
-        #Thread(target=self.receive,args=()).start()
-        #Thread(target=self.receive,args=()).start()
+
+        Thread(target=self.receive,args=()).start()
+
         flag = True
         while flag:
 
-            self.connection.sendto(self.msg.encode(),self.addr)
             self.msg = input('Digite sua mensagem: ')
-            self.resposta = self.connection.recvfrom(1024)
+            self.connection.sendto(self.msg.encode(),self.addr)
+            #self.resposta = self.connection.recvfrom(1024)
 
-            print(f'\nResposta do servidor: {self.resposta[0].decode()}')
+            #print(f'\nResposta do servidor: {self.resposta[0].decode()}')
 
 
             if self.msg == '\x18':
@@ -34,7 +35,7 @@ class clientudp:
 
     def receive(self):
         while True:
-            self.received = self.connection.recvfrom(1024)
+            self.received = self.connection.recvfrom(1024) 
             print(f'Server: {self.received[0].decode()}')
 
     
