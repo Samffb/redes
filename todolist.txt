@@ -1,0 +1,7 @@
+todo list
+
+
+fazer o cara sair da sala
+quem tentar entrar no jogo depois que começar, não pode mais entrar
+fazer que o cliente receba a mensagem do servidor quando ele enviar
+
